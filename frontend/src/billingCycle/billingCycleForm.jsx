@@ -10,17 +10,17 @@ import Summary from './summary'
 
 class BillingCycleForm extends Component {
 
-    calculateSummary() {
-        const sum = (t, v) => t + v
-        return {
-            sumOfCredits: this.props.credits.map(c => +c.value || 0).reduce(sum),
-            sumOfDebts: this.props.debts.map(d => +d.value || 0).reduce(sum)
-        }
-    }
+    // calculateSummary() {
+    //     const sum = (t, v) => t + v
+    //     return {
+    //         sumOfCredits: this.props.credits.map(c => +c.value || 0).reduce(sum),
+    //         sumOfDebts: this.props.debts.map(d => +d.value || 0).reduce(sum)
+    //     }
+    // }
 
     render() {
-        const { handleSubmit, readOnly, credits, debts } = this.props
-        const { sumOfCredits, sumOfDebts } = this.calculateSummary()
+        const { handleSubmit, readOnly, services, users, locates } = this.props
+        // const { sumOfCredits, sumOfDebts } = this.calculateSummary()
         return (
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
@@ -40,10 +40,13 @@ class BillingCycleForm extends Component {
                         label='Mês Final' cols='12 4' placeholder='Informe o mês' />
                     <Field name='year' component={LabelAndInput} type='number' readOnly={readOnly}
                         label='Ano Final' cols='12 4' placeholder='Informe o ano' />
-                    <ItemList cols='12 6' list={credits} readOnly={readOnly}
-                        field='credits' legend='Créditos' />
-                    <ItemList cols='12 6' list={debts} readOnly={readOnly}
-                        field='debts' legend='Débitos' showStatus={true} />
+                    
+                    <ItemList cols='12 4' list={services} readOnly={readOnly}
+                        field='services' legend='Serviços' />
+                    <ItemList cols='12 4' list={users} readOnly={readOnly}
+                        field='users' legend='Usuários' />
+                    <ItemList cols='12 4' list={locates} readOnly={readOnly}
+                        field='locates' legend='Localidades' />
                 </div>
                 <div className='box-footer'>
                     <button type='submit' className={`btn btn-${this.props.submitClass}`}>
@@ -60,8 +63,9 @@ class BillingCycleForm extends Component {
 BillingCycleForm = reduxForm({form: 'billingCycleForm', destroyOnUnmount: false})(BillingCycleForm)
 const selector = formValueSelector('billingCycleForm')
 const mapStateToProps = state => ({
-    credits: selector(state, 'credits'),
-    debts: selector(state, 'debts')
+    services: selector(state, 'services'),
+    users: selector(state, 'users'),
+    locates: selector(state, 'locates')
 })
 const mapDispatchToProps = dispatch => bindActionCreators({init}, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleForm)
