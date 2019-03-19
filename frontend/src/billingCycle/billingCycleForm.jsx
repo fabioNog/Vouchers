@@ -26,19 +26,19 @@ class BillingCycleForm extends Component {
                 <div className='box-body'>
                 <Field name='name' component={LabelAndInput} readOnly={readOnly}
                         label='Nome' cols='12 6' placeholder='Informe o nome' />
-                    <Field name='cpd' component={LabelAndInput} readOnly={readOnly}
+                    {/* <Field name='code' component={LabelAndInput} readOnly={readOnly}
                         label='Código' cols='12 6' placeholder='Informe o Codigo' />
-                    <Field name='day' component={LabelAndInput} type='number' readOnly={readOnly}
+                    <Field name='start_day' component={LabelAndInput} type='number' readOnly={readOnly}
                         label='Dia Inicial' cols='12 4' placeholder='Informe o dia' />
-                    <Field name='month' component={LabelAndInput} type='number' readOnly={readOnly}
+                    <Field name='start_month' component={LabelAndInput} type='number' readOnly={readOnly}
                         label='Mês Inicial' cols='12 4' placeholder='Informe o mês' />
-                    <Field name='year Inicial' component={LabelAndInput} type='number' readOnly={readOnly}
+                    <Field name='start_year' component={LabelAndInput} type='number' readOnly={readOnly}
                         label='Ano Inicial' cols='12 4' placeholder='Informe o ano' />
-                    <Field name='day' component={LabelAndInput} type='number' readOnly={readOnly}
+                    <Field name='end_day' component={LabelAndInput} type='number' readOnly={readOnly}
                         label='Dia Final' cols='12 4' placeholder='Informe o dia' />
-                    <Field name='month' component={LabelAndInput} type='number' readOnly={readOnly}
+                    <Field name='end_month' component={LabelAndInput} type='number' readOnly={readOnly}
                         label='Mês Final' cols='12 4' placeholder='Informe o mês' />
-                    <Field name='year' component={LabelAndInput} type='number' readOnly={readOnly}
+                    <Field name='end_year' component={LabelAndInput} type='number' readOnly={readOnly}
                         label='Ano Final' cols='12 4' placeholder='Informe o ano' />
                     
                     <ItemList cols='12 4' list={services} readOnly={readOnly}
@@ -46,7 +46,7 @@ class BillingCycleForm extends Component {
                     <ItemList cols='12 4' list={users} readOnly={readOnly}
                         field='users' legend='Usuários' />
                     <ItemList cols='12 4' list={locates} readOnly={readOnly}
-                        field='locates' legend='Localidades' />
+                        field='locates' legend='Localidades' /> */}
                 </div>
                 <div className='box-footer'>
                     <button type='submit' className={`btn btn-${this.props.submitClass}`}>
