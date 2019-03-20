@@ -19,16 +19,17 @@ const mongoose = restful.mongoose
 //     "maxTimes" : 0 //Máximo de utilizações
 // }
 
-const ServicesSchema = new mongoose.Schema({
-    service: { type: String, required: true },
+const ServiceSchema = new mongoose.Schema({
+    name: { type: String, required: true },
 })
 
-// const UsedBySchema = new mongoose.Schema({
-//     usedbys: { type: String, required: true },
-// })
-// const locationsSchema = new mongoose.Schema({
-//     locations: { type: String, required: true },
-// })
+const UsedBySchema = new mongoose.Schema({
+    name: { type: String, required: true },
+})
+
+const LocationsSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+})
 
 const VauncherSchema = new mongoose.Schema({
    
@@ -40,11 +41,11 @@ const VauncherSchema = new mongoose.Schema({
     end_year: { type: Number, min: 1970, max: 2100, required: true },    
     // // unlimited : { type: Boolean, required: true },
     // // justNew : { type: Boolean, required: true },
-    services : [ServicesSchema], //Serviços que se pode usar ‘Unhas’, ‘Depilação’
+    services : [ServiceSchema], //Serviços que se pode usar ‘Unhas’, ‘Depilação’
     code : { type: String, required: true }, //Código que deve ser utilizado
-    // usedBy : [usedbys],
+    users : [UsedBySchema],
     // // campaign : { type: Boolean, required: true }, //se for Dia dos pais então true
-    // location : [locations], //Em quais cidades pode ser utilizado, ‘São Paulo’, ‘Rio de Janeiro’
+    // locations : [LocationsSchema], //Em quais cidades pode ser utilizado, ‘São Paulo’, ‘Rio de Janeiro’
     // usedTimes : { type: Number, min: 0, required: [true, 'Informe o quantidade de vezes usada!'] }, //Quantidade de vezes utilizado
     // timesByUser : { type: Number, min: 1, required: [true, 'Informe o quantidade de vezes que podera ser usatilizado por cliente!'] }, //Quantidade de vezes que pode ser utilizado por um cliente
     // type : "P", //P para porcentagem e V para valor fixo
