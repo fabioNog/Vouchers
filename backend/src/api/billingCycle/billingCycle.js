@@ -27,7 +27,7 @@ const UsedBySchema = new mongoose.Schema({
     name: { type: String, required: true },
 })
 
-const LocationsSchema = new mongoose.Schema({
+const LocationSchema = new mongoose.Schema({
     name: { type: String, required: true },
 })
 
@@ -45,7 +45,7 @@ const VauncherSchema = new mongoose.Schema({
     code : { type: String, required: true }, //Código que deve ser utilizado
     users : [UsedBySchema],
     // // campaign : { type: Boolean, required: true }, //se for Dia dos pais então true
-    // locations : [LocationsSchema], //Em quais cidades pode ser utilizado, ‘São Paulo’, ‘Rio de Janeiro’
+    locates : [LocationSchema], //Em quais cidades pode ser utilizado, ‘São Paulo’, ‘Rio de Janeiro’
     // usedTimes : { type: Number, min: 0, required: [true, 'Informe o quantidade de vezes usada!'] }, //Quantidade de vezes utilizado
     // timesByUser : { type: Number, min: 1, required: [true, 'Informe o quantidade de vezes que podera ser usatilizado por cliente!'] }, //Quantidade de vezes que pode ser utilizado por um cliente
     // type : "P", //P para porcentagem e V para valor fixo

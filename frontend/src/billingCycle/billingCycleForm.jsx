@@ -21,7 +21,7 @@ class BillingCycleForm extends Component {
     // }
 
     render() {
-        const { handleSubmit, readOnly, services,users } = this.props
+        const { handleSubmit, readOnly, services,users, locates } = this.props
         // const { sumOfCredits, sumOfDebts } = this.calculateSummary()
         return (
             <form role='form' onSubmit={handleSubmit}>
@@ -45,8 +45,8 @@ class BillingCycleForm extends Component {
                         field='services' legend='Serviços' />
                     <ItemList cols='12 4' list={users} readOnly={readOnly}
                         field='users' legend='Usuários' />
-                    {/* <ItemList cols='12 4' list={locates} readOnly={readOnly}
-                        field='locates' legend='Localidades' /> */}
+                    <ItemList cols='12 4' list={locates} readOnly={readOnly}
+                        field='locates' legend='Localidades' />
 
                 </div>
                 <div className='box-footer'>
@@ -67,7 +67,7 @@ const selector = formValueSelector('billingCycleForm')
 const mapStateToProps = state => ({
     services: selector(state, 'services'),
     users: selector(state, 'users'),
-    // locates: selector(state, 'locates')
+    locates: selector(state, 'locates')
 })
 const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleForm)
